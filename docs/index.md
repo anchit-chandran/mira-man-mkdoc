@@ -521,7 +521,7 @@ formal parameters, as in
 
             array * == [[*]]
 
-so now eg \`array num\' is the same type as \`matrix\`. []{#Abstract}
+so now eg `array num\' is the same type as `matrix`. []{#Abstract}
 
 ## Abstract data types
 

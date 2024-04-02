@@ -58,7 +58,7 @@ theme:
   name: material 
   features:
     - navigation.expand
-    - header.autohide
+    # - header.autohide
     - navigation.footer # explicitly adds footer prev/next (Material4MkDocs9.0)
     - navigation.instant
     - navigation.tabs
@@ -71,7 +71,7 @@ theme:
   palette:
     scheme: dark
   font:
-    text: Montserrat
+    text: Roboto Mono
     code: Roboto Mono
 
 plugins:
