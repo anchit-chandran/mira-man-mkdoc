@@ -1,0 +1,1645 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Docs site for Miranda">
+      
+      
+        <meta name="author" content="Dr Anchit Chandran">
+      
+      
+      
+        <link rel="prev" href="../26/">
+      
+      
+        <link rel="next" href="../29/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>The Miranda Standard Environment - Miranda Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../_assets/_stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="dark" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-miranda-standard-environment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Miranda Docs" class="md-header__button md-logo" aria-label="Miranda Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Miranda Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Miranda Standard Environment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../2/" class="md-tabs__link">
+        Meta
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../4/" class="md-tabs__link">
+        Miranda command interpreter
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../7/" class="md-tabs__link md-tabs__link--active">
+        Main Concepts
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Miranda Docs" class="md-nav__button md-logo" aria-label="Miranda Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Miranda Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Meta
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Meta
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        About the name 'Miranda'
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        About this release
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Miranda command interpreter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Miranda command interpreter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        The Miranda command interpreter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        Summary of main commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        Remaining commands list
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Main Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Main Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        Expressions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        Operators & Binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        Sections
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        Identifiers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        Literals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12/" class="md-nav__link">
+        Tokenisation and layout
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          Iterative Expressions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          Iterative Expressions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-1/" class="md-nav__link">
+        Dotdot notation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-2/" class="md-nav__link">
+        List comprehensions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-3/" class="md-nav__link">
+        Diagonalising list comprehensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15/" class="md-nav__link">
+        Definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16/" class="md-nav__link">
+        Pattern Matching
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17/" class="md-nav__link">
+        Compiler directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18/" class="md-nav__link">
+        Basic type structure and notation for types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19/" class="md-nav__link">
+        Type synonym declarations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20/" class="md-nav__link">
+        Algebraic type definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21/" class="md-nav__link">
+        Abstract type definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22/" class="md-nav__link">
+        Empty types (also called Placeholder types)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23/" class="md-nav__link">
+        Show
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24/" class="md-nav__link">
+        Syntax of Miranda scripts and expressions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25/" class="md-nav__link">
+        Comments on the syntax for Miranda scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26/" class="md-nav__link">
+        Miranda lexical syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        The Miranda Standard Environment
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29/" class="md-nav__link">
+        Literate Scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30/" class="md-nav__link">
+        Programming Style Guidelines
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="the-miranda-standard-environment">The Miranda Standard Environment</h1>
+<p>We give here, in alphabetical order, a brief explanation of all the
+identifiers in the Miranda standard environment, each followed by its
+definition (except in a few cases where the definition cannot
+conveniently be given in Miranda). The lines marked with a <code>\&gt;</code> in
+column one are formal program text, the other lines in the file are
+comment. Note that a number of the functions given here are defined
+internally (for speed) even though their definitions could have been
+given in Miranda - in these cases the Miranda definition is given as a
+comment. This is the standard environment of Miranda release two.</p>
+<p><code>abs</code> takes the absolute value of a number - e.g. abs (-3) is 3, abs
+3.5 is 3.5</p>
+<pre><code>&gt; abs :: num-&gt;num
+&gt; abs x = -x, if x&lt;0
+&gt;       =  x, otherwise
+</code></pre>
+<p><code>and</code> applied to a list of truthvalues, takes their logical
+conjunction.</p>
+<pre><code>&gt; and :: [bool]-&gt;bool
+&gt; and = foldr (&amp;) True
+</code></pre>
+<p><code>arctan</code> is the trigonometric function, inverse tangent. It returns a
+result in the range -pi/2 to pi/2. See also <code>sin\',</code>cos`.</p>
+<pre><code>&gt; arctan :: num-&gt;num ||defined internally
+</code></pre>
+<p><code>bool</code> is the type comprising the two truthvalues.</p>
+<pre><code>        bool ::= False | True ||primitive to Miranda
+</code></pre>
+<p><code>char\' is the type comprising ascii characters (e.g. \'a\', \'\\n</code>).</p>
+<pre><code>        char :: type ||primitive to Miranda
+</code></pre>
+<p><code>cjustify</code> applied to a number and a string, centre justifies the
+string in a field of the specified width. See also <code>ljustify</code>,
+<code>rjustify\',</code>spaces`.</p>
+<pre><code>&gt; cjustify :: num-&gt;[char]-&gt;[char]
+&gt; cjustify n s = spaces lmargin++s++spaces rmargin
+&gt;                where
+&gt;                margin = n - # s
+&gt;                lmargin = margin div 2
+&gt;                rmargin = margin - lmargin
+</code></pre>
+<p><code>code</code> applied to a character returns the integer which is its ascii
+code. E.g.</p>
+<pre><code>        code 'a' = 97.
+</code></pre>
+<p>See also <code>decode</code>.</p>
+<pre><code>&gt; code :: char-&gt;num  ||defined internally
+</code></pre>
+<p><code>concat</code> applied to a list of lists, joins them all together into a
+single list with <code>++</code>. E.g.</p>
+<pre><code>        concat [[1,2],[],[3,4]] = [1,2,3,4].
+
+&gt; concat :: [[*]]-&gt;[*]
+&gt; concat = foldr (++) []
+</code></pre>
+<p><code>const</code> is a combinator for creating constant-valued functions. E.g.
+(const 3) is the function that always returns 3.</p>
+<pre><code>&gt; const :: *-&gt;**-&gt;*
+&gt; const x y = x
+</code></pre>
+<p><code>converse</code> is a combinator for inverting the order of arguments of a
+two-argument function.</p>
+<pre><code>&gt; converse :: (*-&gt;**-&gt;***)-&gt;**-&gt;*-&gt;***
+&gt; converse f a b = f b a
+</code></pre>
+<p><code>cos</code> is the trigonometric cosine function, argument in radians.</p>
+<pre><code>&gt; cos :: num-&gt;num   ||defined internally
+</code></pre>
+<p><code>decode</code> applied to a number between 0 and 255 returns the
+corresponding value of type char.</p>
+<pre><code>&gt; decode :: num-&gt;char ||defined internally
+</code></pre>
+<p><code>digit</code> is a predicate on characters. True if the character is a
+digit. See also <code>letter</code>.</p>
+<pre><code>&gt; digit :: char-&gt;bool
+&gt; digit x = '0'&lt;=x&lt;='9'
+</code></pre>
+<p><code>drop</code> applied to a number and a list returns the list with that many
+elements removed from the front. If the list has less than the required
+number of elements, <code>drop</code> returns []. Example</p>
+<pre><code>        drop 2 [1,2,3,4] = [3,4]
+</code></pre>
+<p>See also <code>take</code>.</p>
+<pre><code>&gt; drop :: num-&gt;[*]-&gt;[*]  ||defined internally, as below
+
+  drop (n+1) (a:x) = drop n x
+  drop n x = x,                                         if integer n
+           = error "drop applied to fractional number", otherwise
+</code></pre>
+<p><code>dropwhile</code> applied to a predicate and a list, removes elements from
+the front of the list while the predicate is satisfied. Example:</p>
+<pre><code>        dropwhile digit "123gone" = "gone"
+</code></pre>
+<p>See also <code>takewhile</code>.</p>
+<pre><code>&gt; dropwhile :: (*-&gt;bool)-&gt;[*]-&gt;[*]
+&gt; dropwhile f [] = []
+&gt; dropwhile f (a:x) = dropwhile f x, if f a
+&gt;                   = a:x,           otherwise
+</code></pre>
+<p><code>e</code> is a transcendental number, the base of natural logarithms.</p>
+<pre><code>&gt; e :: num
+&gt; e = exp 1
+</code></pre>
+<p><code>entier</code> when applied to a number returns its integer part, meaning
+the largest integer not exceeding it. E.g.</p>
+<pre><code>        entier 1.0 = 1
+        entier 3.5 = 3
+        entier (-3.5) = -4.
+</code></pre>
+<p>Notice that for Miranda the number <code>1\' and the number</code>1.0<code>are
+different values - for example they yield different results under the</code>integer\' test. However <code>1=1.0</code> is True, because of the automatic
+conversion from integer to float.</p>
+<pre><code>&gt; entier :: num-&gt;num  ||defined internally
+</code></pre>
+<p>A useful fact about <code>entier</code>, which relates it to the operators
+<strong>div</strong> and <strong>mod</strong>, is that the following law holds for any integers a,
+b with b\~=0 and a/b within the range for which integers can be
+represented exactly as fractional numbers</p>
+<pre><code>        a div b = entier (a/b)
+</code></pre>
+<p><code>error</code> applied to a string creates an error value with the associated
+message. Error values are all equivalent to the undefined value - any
+attempt to access the value causes the program to terminate and print
+the string as a diagnostic.</p>
+<pre><code>&gt; error :: [char]-&gt;*  ||defined internally
+</code></pre>
+<p><code>exp\' is the exponential function on real numbers. See also</code>log`.</p>
+<pre><code>&gt; exp :: num-&gt;num   ||defined internally
+</code></pre>
+<p><code>filemode</code> applied to a string representing the pathname of a UNIX
+file, returns a string of length four giving the access permissions of
+the current process to the file. The permissions are encoded as (in this
+order) \"drwx\", any permission not granted is replaced by a \'-\'
+character. If there is no file at pathname p, filemode p returns the
+empty string. Example</p>
+<pre><code>        member (filemode f) 'w'
+</code></pre>
+<p>tests f for write permission. See also <code>getenv\',</code>read\', <code>system</code>.</p>
+<pre><code>&gt; filemode :: [char]-&gt;[char]  ||defined internally
+</code></pre>
+<p><code>filter</code> applied to a predicate and a list, returns a list containing
+only those elements that satisfy the predicate. Example</p>
+<pre><code>        filter (&gt;5) [3,7,2,8,1,17] = [7,8,17]
+
+&gt; filter :: (*-&gt;bool)-&gt;[*]-&gt;[*]
+&gt; filter f x = [a | a&lt;-x; f a]
+</code></pre>
+<p><code>foldl</code> folds up a list, using a given binary operator and a given
+start value, in a left associative way. Example:</p>
+<pre><code>        foldl op r [a,b,c] = (((r $op a) $op b) $op c)
+</code></pre>
+<p>But note that in order to run in constant space, foldl forces <code>op</code> to
+evaluate its first parameter. See the definitions of <code>product</code>,
+<code>reverse\',</code>sum\' for examples of its use. See also <code>foldr</code>.</p>
+<pre><code>&gt; foldl :: (*-&gt;**-&gt;*)-&gt;*-&gt;[**]-&gt;*  ||defined internally, as below
+
+  foldl op r [] = r
+  foldl op r (a:x) = strict (foldl op) (op r a) x
+                     where
+                     strict f x = seq x (f x)
+</code></pre>
+<p>WARNING - this definition of foldl differs from that in older versions
+of Miranda. The one here is the same as that in Bird and Wadler (1988).
+The old definition had the two args of <code>op</code> reversed. That is:-</p>
+<pre><code>        old_foldl op r = new_foldl (converse op) r
+</code></pre>
+<p>the function <code>converse</code> has been added to the standard environment.</p>
+<p><code>foldl1</code> folds left over non-empty lists. See the definitions of
+<code>max\',</code>min` for examples of its use.</p>
+<pre><code>&gt; foldl1 :: (*-&gt;*-&gt;*)-&gt;[*]-&gt;*  ||defined internally, as below
+
+  foldl1 op (a:x) = foldl op a x
+  foldl1 op [] = error "foldl1 applied to []"
+</code></pre>
+<p><code>foldr</code> folds up a list, using a given binary operator and a given
+start value, in a right associative way. Example:</p>
+<pre><code>        foldr op r [a,b,c] = a $op (b $op (c $op r))
+</code></pre>
+<p>See the definitions of <code>and\',</code>concat\', <code>or</code>, for examples of its
+use.</p>
+<pre><code>&gt; foldr :: (*-&gt;**-&gt;**)-&gt;**-&gt;[*]-&gt;** ||defined internally, as below
+
+  foldr op r [] = r
+  foldr op r (a:x) = op a (foldr op r x)
+</code></pre>
+<p><code>foldr1</code> folds right over non-empty lists.</p>
+<pre><code>&gt; foldr1 :: (*-&gt;*-&gt;*)-&gt;[*]-&gt;*
+&gt; foldr1 op [a] = a
+&gt; foldr1 op (a:b:x) = op a (foldr1 op (b:x))
+&gt; foldr1 op [] = error "foldr1 applied to []"
+</code></pre>
+<p><code>force</code> applied to any data structure, returns it, but forces a check
+that every part of the structure is defined. Example</p>
+<pre><code>        hd(force x)
+</code></pre>
+<p>returns the hd of x, but fully evaluates x first (so x must be finite).
+See also <code>seq\'. Notice in particular the idiom</code>seq (force a) b<code>which returns</code>b\' but only after fully evaluating <code>a</code>.</p>
+<pre><code>&gt; force :: *-&gt;* ||defined internally
+</code></pre>
+<p><code>fst\' returns the first component of a pair. See also</code>snd`.</p>
+<pre><code>&gt; fst :: (*,**)-&gt;*
+&gt; fst (a,b) = a
+</code></pre>
+<p><code>getenv\' looks up a string in the user</code>s UNIX environment. Example</p>
+<pre><code>        getenv  "HOME"
+</code></pre>
+<p>returns the pathname of your home directory. [If you want to see what
+else is in your UNIX environment, say <code>printenv</code> as a UNIX command.]</p>
+<pre><code>&gt; getenv :: [char]-&gt;[char]   ||defined internally
+</code></pre>
+<p><code>hd</code> applied to a non empty list, returns its first element. It is an
+error to apply <code>hd\' to the empty list, \[\]. See also</code>tl`.</p>
+<pre><code>&gt; hd :: [*]-&gt;*
+&gt; hd (a:x) = a
+&gt; hd [] = error "hd []"
+</code></pre>
+<p><code>hugenum</code> is the largest fractional number that can exist in this
+implementation (should be around 1e308 for IEEE standard 64 bit floating
+point). See also <code>tinynum</code>.</p>
+<pre><code>&gt; hugenum :: num  ||defined internally
+</code></pre>
+<p><code>id</code> is the identity function - applied to any object it returns it.</p>
+<pre><code>&gt; id :: *-&gt;*
+&gt; id x = x
+</code></pre>
+<p><code>index</code> applied to a (finite or infinite) list, returns a list of its
+legal subscript values, in ascending order. E.g. index \"hippopotamus\"
+is [0,1,2,3,4,5,6,7,8,9,10,11].</p>
+<pre><code>&gt; index :: [*]-&gt;[num]
+&gt; index x = f 0 x
+&gt;           where
+&gt;           f n [] = []
+&gt;           f n (a:x) = n:f(n+1)x
+</code></pre>
+<p><code>init\' is dual to</code>tl`, it returns a list without its last
+component. Example</p>
+<pre><code>        init [1,2,3,4] = [1,2,3].
+</code></pre>
+<p>See also <code>last\'. \[Note, by the</code>dual` of a list processing function
+we mean the function which does the same job in a world where all lists
+have been reversed.]</p>
+<pre><code>&gt; init :: [*]-&gt;[*]
+&gt; init (a:x) = [],       if x=[]
+&gt;            = a:init x, otherwise
+&gt; init [] = error "init []"
+</code></pre>
+<p><code>integer</code> is a predicate on numbers. True if and only if the number is
+not fractional.</p>
+<pre><code>&gt; integer :: num-&gt;bool    ||defined internally
+</code></pre>
+<p>[<code>iterate</code> - iterate f x returns the infinite list [x, f x, f(f x),
+... ] Example, iterate (2*) 1 yields a list of the powers of 2. In
+the definition note use of \", ..\" to express a recurrence relation
+(see manual section 13/2).]{#iterate}</p>
+<pre><code>&gt; iterate :: (*-&gt;*)-&gt;*-&gt;[*]
+&gt; iterate f x = [y | y&lt;-x, f y ..]
+</code></pre>
+<p><code>last</code> applied to a non empty list returns its last element. This
+function is the dual of <code>hd</code>. Note that for any non-empty list x</p>
+<pre><code>        (init x ++ [last x]) = x
+
+&gt; last :: [*]-&gt;*    ||defined internally, as below
+
+  last x = x!(#x-1)
+</code></pre>
+<p><code>lay</code> applied to a list of strings, joins them together after
+appending a newline character to each string. Example</p>
+<pre><code>        lay ["hello","world"] = "hello\nworld\n"
+</code></pre>
+<p>Used to format output thus,</p>
+<pre><code>        lay(map show x)
+</code></pre>
+<p>as a top level expression, causes the elements of the list x to be
+printed one per line. See also <code>layn\',</code>lines`.</p>
+<pre><code>&gt; lay :: [[char]]-&gt;[char]
+&gt; lay [] = []
+&gt; lay (a:x) = a++"\n"++lay x
+</code></pre>
+<p><code>layn\' is similar to</code>lay`, but produces output with numbered lines.</p>
+<pre><code>&gt; layn :: [[char]]-&gt;[char]
+&gt; layn x =   f 1 x
+&gt;            where
+&gt;            f n [] = []
+&gt;            f n (a:x) = rjustify 4 (show n) ++") "++a++"\n"++f (n+1) x
+</code></pre>
+<p>\'letter\' is a predicate on characters. True if the character is a
+letter.</p>
+<pre><code>&gt; letter :: char-&gt;bool
+&gt; letter c = 'a'&lt;=c&lt;='z' \/ 'A'&lt;=c&lt;='Z'
+</code></pre>
+<p><code>limit</code> applied to a list of values, returns the first value which is
+the same as its successor. Useful in testing for convergence. For
+example the following Miranda expression computes the square root of 2
+by the Newton-Raphson method</p>
+<pre><code>        limit [x | x&amp;lt;-2, 0.5*(x + 2/x).. ]
+
+&gt; limit :: [*]-&gt;*
+&gt; limit (a:b:x) = a,           if a=b
+&gt;               = limit (b:x), otherwise
+&gt; limit other = error "incorrect use of limit"
+</code></pre>
+<p><code>lines</code> applied to a list of characters containing newlines, returns a
+list of lists, by breaking the original into lines. The newline
+characters are removed from the result. Example, <code>lines</code> applied to</p>
+<pre><code>        "hello world\nit's me,\neric\n"
+</code></pre>
+<p>returns [\"hello world\",\"it\'s me\",\"eric\"]. Note that <code>lines</code>
+treats newline as a terminator, not a separator (although it will
+tolerate a missing \'\n\' on the last line).</p>
+<pre><code>&gt; lines :: [char]-&gt;[[char]]
+&gt; lines [] = []
+&gt; lines (a:x) = []:lines x,   if a='\n'
+&gt;             = (a:x1):xrest, otherwise
+&gt;               where 
+&gt;               (x1:xrest) = lines x, if x~=[]
+&gt;                          = []:[],   otherwise
+&gt;                            ||this handles missing '\n' on last line
+</code></pre>
+<p>Note that the inverse of <code>lines\' is the function</code>lay<code>, in that
+applying</code>lay\' to the output of <code>lines</code> will restore the original
+string (except that a final newline will be added, if missing in the
+original string).</p>
+<p><code>ljustify</code> applied to a number and a string, left justifies the string
+in a field of the specified width.</p>
+<pre><code>&gt; ljustify :: num-&gt;[char]-&gt;[char]
+&gt; ljustify n s = s++spaces(n - # s)
+</code></pre>
+<p><code>log</code> applied to a number returns its natural logarithm (i.e.
+logarithm to the base <code>e</code>). It is the inverse of the exponential
+function, <code>exp</code>. See also log10. Note that the log functions use a
+different algorithm when applied to integer arguments (rather than just
+converting to float first) so it is possible to take log, or log10, of
+very large integers.</p>
+<pre><code>&gt; log :: num-&gt;num      ||defined internally
+</code></pre>
+<p><code>log10</code> applied to a number returns its logarithm to the base 10.</p>
+<pre><code>&gt; log10 :: num-&gt;num      ||defined internally
+</code></pre>
+<p><code>map</code> applied to a function and a list returns a copy of the list in
+which the given function has been applied to every element.</p>
+<pre><code>&gt; map :: (*-&gt;**)-&gt;[*]-&gt;[**]
+&gt; map f x = [f a | a&lt;-x]
+</code></pre>
+<p><code>map2\' is similar to</code>map<code>, but takes a function of two arguments,
+and maps it along two argument lists. We could also define</code>map3<code>,</code>map4` etc., but they are much less often needed.</p>
+<pre><code>&gt; map2 :: (*-&gt;**-&gt;***)-&gt;[*]-&gt;[**]-&gt;[***]
+&gt; map2 f x y = [f a b | (a,b)&lt;-zip2 x y]
+</code></pre>
+<p>Note: the Bird and Wadler function <code>zipwith</code> is just an uncurried
+version of <code>map2\', that is</code>zipwith f (x,y)\' means <code>map2 f x y</code>.</p>
+<p><code>max</code> applied to a list returns the largest element under the built in
+ordering of <code>\&gt;</code>. Examples</p>
+<pre><code>        max [1,2,12,-6,5] = 12
+        max "hippopotamus" = 'u'
+</code></pre>
+<p>See also <code>min\',</code>sort`.</p>
+<pre><code>&gt; max :: [*]-&gt;*
+&gt; max = foldl1 max2
+</code></pre>
+<p><code>max2</code> applied to two values of the same type returns the larger under
+the built in ordering of \'>\'. See also <code>min2</code>.</p>
+<pre><code>&gt; max2 :: *-&gt;*-&gt;*
+&gt; max2 a b = a, if a&gt;=b
+&gt;          = b, otherwise
+</code></pre>
+<p><code>member</code> applied to a list and a value returns True or False as the
+value is or not present in the list.</p>
+<pre><code>&gt; member :: [*]-&gt;*-&gt;bool
+&gt; member x a = or (map (=a) x)
+</code></pre>
+<p><code>merge</code> applied to two sorted lists merges them to produce a single
+sorted result. Used to define <code>sort</code>, see later.</p>
+<pre><code>&gt; merge :: [*]-&gt;[*]-&gt;[*]  ||defined internally, as below
+
+  merge [] y = y
+  merge (a:x) [] = a:x
+  merge (a:x) (b:y) = a:merge x (b:y), if a&lt;=b
+                    = b:merge (a:x) y, otherwise
+</code></pre>
+<p><code>min\' applied to a list returns its least member under</code>\&lt;`.</p>
+<pre><code>&gt; min :: [*]-&gt;*
+&gt; min = foldl1 min2
+</code></pre>
+<p><code>min2</code> applied to two values of the same type returns the smaller
+under the built in ordering of \'\&lt;\'.</p>
+<pre><code>&gt; min2 :: *-&gt;*-&gt;*
+&gt; min2 a b = b, if a&gt;b
+&gt;          = a, otherwise
+</code></pre>
+<p><code>mkset</code> applied to a list returns a copy of the list from which any
+duplicated elements have been removed. A list without duplications can
+be used to represent a set, whence the name. Works even on infinite
+list, but (beware) takes a time quadratic in the number of elements
+processed.</p>
+<pre><code>&gt; mkset :: [*]-&gt;[*]
+&gt; mkset [] = []
+&gt; mkset (a:x) = a:filter (~=a) (mkset x)
+</code></pre>
+<p><code>neg</code> is a function of one numeric argument, with the same action as
+the unary <code>-</code> operator.</p>
+<pre><code>&gt; neg :: num-&gt;num
+&gt; neg x = -x
+</code></pre>
+<p><code>num</code> is the type comprising both integer and fractional numbers (such
+as 42, -12.73e8).</p>
+<pre><code>        num :: type  ||primitive to Miranda
+</code></pre>
+<p><code>numval</code> converts a numeric string to the corresponding number - can
+cope with sign, decimal point and scale factor (uses same rules as
+Miranda compiler). Strings containing inappropriate characters cause an
+error (exception - leading white space is harmless).</p>
+<pre><code>&gt; numval :: [char]-&gt;num ||defined internally
+</code></pre>
+<p><code>or</code> applied to a list of truthvalues, takes their logical
+disjunction.</p>
+<pre><code>&gt; or :: [bool]-&gt;bool
+&gt; or = foldr (\/) False
+</code></pre>
+<p><code>pi</code> is the well known real number (the ratio of the circumference of
+a circle to its diameter).</p>
+<pre><code>&gt; pi :: num
+&gt; pi = 4*arctan 1
+</code></pre>
+<p><code>postfix</code> takes an element and a list and adds the element to the end
+of the list. This is the dual of the prefix operator, <code>:</code>.</p>
+<pre><code>&gt; postfix :: *-&gt;[*]-&gt;[*]
+&gt; postfix a x = x ++ [a]
+</code></pre>
+<p><code>product</code> applied to list of numbers returns their product. See also
+<code>sum</code>.</p>
+<pre><code>&gt; product :: [num]-&gt;num
+&gt; product = foldl (*) 1
+</code></pre>
+<p><code>read</code> returns the contents of file with a given pathname. Provides an
+interface to the UNIX filing system. If the file is empty <code>read</code>
+returns [], but if the file does not exist, or lacks read permission,
+<code>read\' causes an error. See also</code>filemode\', <code>getenv</code>.</p>
+<pre><code>&gt; read :: [char]-&gt;[char]  ||defined internally
+</code></pre>
+<p><strong>readvals</strong> is a family of functions for reading a list of values from
+a file. See manual section 31/3.</p>
+<p><code>rep</code> applied to a number and a value, returns a list containing the
+specified number of instances of the value. (The name is short for
+<code>replicate</code>.) Example</p>
+<pre><code>        rep 6 'o' = "oooooo"
+</code></pre>
+<p>See also <code>repeat</code>.</p>
+<pre><code>&gt; rep :: num-&gt;*-&gt;[*]
+&gt; rep n x = take n (repeat x)
+</code></pre>
+<p><code>repeat</code> applied to a value returns an infinite list, all of whose
+elements are the given value.</p>
+<pre><code>&gt; repeat :: *-&gt;[*]
+&gt; repeat x = xs
+&gt;            where xs = x:xs
+</code></pre>
+<p><code>reverse</code> applied to any finite list returns a list of the same
+elements in reverse order.</p>
+<pre><code>&gt; reverse :: [*]-&gt;[*]
+&gt; reverse = foldl (converse(:)) []
+</code></pre>
+<p><code>rjustify</code> applied to a number and a string, right justifies the
+string in a field of the specified width.</p>
+<pre><code>&gt; rjustify :: num-&gt;[char]-&gt;[char]
+&gt; rjustify n s = spaces(n - # s)++s
+</code></pre>
+<p><code>scan op r\' applies</code>foldl op r<code>to every initial segment of a list.
+For example</code>scan (+) 0 x` computes running sums.</p>
+<pre><code>&gt; scan :: (*-&gt;**-&gt;*)-&gt;*-&gt;[**]-&gt;[*]
+&gt; scan op = g 
+&gt;           where
+&gt;           g r = (r:). rest
+&gt;                 where
+&gt;                 rest [] = []
+&gt;                 rest (a:x) = g (op r a) x
+</code></pre>
+<p>There is another way to explain <code>scan</code>, which makes it clearer why it
+is useful. Let s0 be the initial state of an automaton, and
+f::state->input->state, its state transition function - then `scan f
+s0\' is a function that takes a list of inputs for the automaton and
+returns the resulting list of states, starting with s0.</p>
+<p><code>seq</code> applied to two values, returns the second but checks that the
+first value is not completely undefined. Sometimes needed, e.g. to
+ensure correct synchronisation in interactive programs.</p>
+<pre><code>&gt; seq :: *-&gt;**-&gt;** ||defined internally
+</code></pre>
+<p><strong>show</strong> is a keyword denoting a family of functions for converting
+values of different types to their print representations. See manual
+section on <code>show</code> for more details.</p>
+<p><code>shownum</code> applied to a number returns as a string a standard print
+representation for it. A special case of the operator <code>show</code>. Applied
+to fractional numbers <code>shownum</code> gives 12 decimal places (less any
+trailing zeros), using a format appropriate to the size of number. For
+more detailed control over number format see <code>showfloat</code>,
+<code>showscaled</code>.</p>
+<pre><code>&gt; shownum :: num-&gt;[char] ||defined internally,
+</code></pre>
+<p><code>showfloat p x</code> returns as a string the number x printed in floating
+point format, that is in the form \"digits.digits\", where the integer p
+(>=0) gives the number of digits after the decimal point.</p>
+<pre><code>&gt; showfloat :: num-&gt;num-&gt;[char] ||defined internally,
+</code></pre>
+<p><code>showscaled p x</code> returns as a string the number x printed in
+scientific format, that is in the form \"n.nnnnnne[+/-]nn\", where the
+integer p (>=0) gives the number of digits required after the decimal
+point.</p>
+<pre><code>&gt; showscaled :: num-&gt;num-&gt;[char] ||defined internally,
+</code></pre>
+<p><code>sin</code> is the trigonometric sine function, argument in radians.</p>
+<pre><code>&gt; sin :: num-&gt;num  ||defined internally
+</code></pre>
+<p><code>snd</code> returns the second component of a pair.</p>
+<pre><code>&gt; snd :: (*,**)-&gt;**
+&gt; snd (a,b) = b
+</code></pre>
+<p><code>sort</code> applied to any finite list sorts the elements of the list into
+ascending order on the built in \'\&lt;\' relation. Note that you cannot
+sort a list of functions. Example</p>
+<pre><code>        sort "hippopotamus" = "ahimoopppstu"
+</code></pre>
+<p>The following definition uses merge-sort, which has n log n worst-case
+behaviour.</p>
+<pre><code>&gt; sort :: [*]-&gt;[*]
+&gt; sort x = x,                                         if n&lt;=1
+&gt;        = merge (sort(take n2 x)) (sort(drop n2 x)), otherwise
+&gt;          where
+&gt;          n = # x
+&gt;          n2 = n div 2
+</code></pre>
+<p><code>spaces</code> applied to a number returns a list of that many spaces.</p>
+<pre><code>&gt; spaces :: num-&gt;[char]
+&gt; spaces n = rep n ' '
+</code></pre>
+<p><code>sqrt</code> is the square root function on (integer or fractional) numbers.
+The result is always fractional.</p>
+<pre><code>&gt; sqrt :: num-&gt;num   ||defined internally
+</code></pre>
+<p><code>subtract</code> is a name for (converse) infix minus. Needed because you
+cannot form postsections in <code>-\'. (See manual entry on</code>sections`.)
+Example</p>
+<pre><code>        subtract 3
+</code></pre>
+<p>is the function that subtracts 3.</p>
+<pre><code>&gt; subtract :: num-&gt;num-&gt;num
+&gt; subtract x y = y - x
+</code></pre>
+<p><code>sum</code> applied to list of numbers returns their sum.</p>
+<pre><code>&gt; sum :: [num]-&gt;num
+&gt; sum = foldl (+) 0
+</code></pre>
+<p><code>sys_message</code> is an algebraic type containing a family of constructors
+used to control output to UNIX files. See manual section on Output to
+UNIX files for details.</p>
+<pre><code>&gt; sys_message ::= Stdout [char] | Stderr [char] | Tofile [char] [char] |
+&gt;                 Closefile [char] | Appendfile [char] | System [char] |
+&gt;                 Exit num
+</code></pre>
+<p><code>system</code> applied to a string causes the string to be executed as a
+UNIX shell command (by <code>sh</code>). The result returned is a 3-tuple,
+comprising the standard_output, error_output, and exit_status
+respectively, resulting from the execution of the UNIX command. See
+manual section on Input from UNIX files etc for more details.</p>
+<pre><code>&gt; system :: [char]-&gt;([char],[char],num)  ||defined internally
+</code></pre>
+<p><code>take</code> applied to a number and a list returns the specified number of
+elements from the front of the list. If the list has less than the
+required number of elements, <code>take</code> returns as many as it can get.
+Examples</p>
+<pre><code>        take 2 [1,2,3,4] = [1,2]
+        take 7 "girls" = "girls"
+
+&gt; take :: num-&gt;[*]-&gt;[*]  ||defined internally, as below
+
+  take (n+1) (a:x) = a : take n x
+  take n x = [],                                        if integer n
+           = error "take applied to fractional number", otherwise
+</code></pre>
+<p><code>takewhile</code> applied to a predicate and a list, takes elements from the
+front of the list while the predicate is satisfied. Example: takewhile
+digit \"123gone\" = \"123\"</p>
+<pre><code>&gt; takewhile :: (*-&gt;bool)-&gt;[*]-&gt;[*]
+&gt; takewhile f [] = []
+&gt; takewhile f (a:x) = a:takewhile f x, if f a
+&gt;                   = [],              otherwise
+</code></pre>
+<p><code>tinynum</code> is the smallest positive fractional number that can be
+distinguished from zero in this implementation (should be around 1e-324
+for IEEE standard 64 bit floating point).</p>
+<pre><code>&gt; tinynum :: num  ||defined internally
+</code></pre>
+<p><code>tl</code> applied to a non empty list returns the list without its first
+element. Example, tl \"snow\" is \"now\".</p>
+<pre><code>&gt; tl :: [*]-&gt;[*]
+&gt; tl (a:x) = x
+&gt; tl [] = error "tl []"
+</code></pre>
+<p><code>transpose</code> applied to a list of lists, returns their transpose (in
+the sense of matrix transpose - rows and columns are interchanged).
+Example</p>
+<pre><code>        transpose [[1,2,3],[4,5,6]] = [[1,4],[2,5],[3,6]]
+</code></pre>
+<p>The following definition is slightly more subtle than is at first sight
+necessary, in order to deal correctly with <code>upper triangular</code>
+matrices. Example</p>
+<pre><code>        transpose [[1,2,3],[4,5],[6]] = [[1,4,6],[2,5],[3]]
+
+&gt; transpose :: [[*]]-&gt;[[*]]
+&gt; transpose x = [],                             if x'=[]
+&gt;             = map hd x':transpose(map tl x'), otherwise
+&gt;               where
+&gt;               x' = takewhile (~=[]) x
+</code></pre>
+<p>It might be thought that this function belongs in a specialised library
+of matrix handling functions, but it has been found useful as a general
+purpose list processing function, whence its inclusion in the standard
+environment.</p>
+<p><code>undef</code> is a name for the completely undefined value. Any attempt
+access it results in an error message. Note that <code>undef</code> belongs to
+every type.</p>
+<pre><code>&gt; undef :: *
+&gt; undef = error "undefined"
+</code></pre>
+<p><code>until</code> applied to a predicate, a function and a value, returns the
+result of applying the function to the value the smallest number of
+times necessary to satisfy the predicate. Example</p>
+<pre><code>        until (&gt;1000) (2*) 1 = 1024
+
+&gt; until :: (*-&gt;bool)-&gt;(*-&gt;*)-&gt;*-&gt;*
+&gt; until f g x = x,               if f x
+&gt;             = until f g (g x), otherwise
+</code></pre>
+<p><code>zip2</code> applied to two lists returns a list of pairs, formed by tupling
+together corresponding elements of the given lists. Example</p>
+<pre><code>        zip2 [0..3] "type" = [(0,'t'),(1,'y'),(2,'p'),(3,'e')]
+</code></pre>
+<p>This function is often useful in list comprehensions, where it provides
+an idiom for accessing two generators simultaneously. For example the
+following expression returns the scalar product of x and y
+(x,y::[num])</p>
+<pre><code>        sum [ a*b | (a,b) &lt;- zip2 x y ]
+
+&gt; zip2 :: [*]-&gt;[**]-&gt;[(*,**)]  ||defined internally, as below
+
+  zip2 (a:x) (b:y) = (a,b):zip2 x y
+  zip2 x y = []
+</code></pre>
+<p>Note that if the lists being zipped are of different lengths, the length
+of the result is that of the shortest list (this holds for zip2 and all
+the following zip functions).</p>
+<p>The function <code>zip3</code> is analogous but takes three lists and returns a
+list of 3-tuples. Similarly for <code>zip4\',</code>zip5\', <code>zip6</code> - zip
+functions above zip6 are not provided in the standard environment.</p>
+<pre><code>&gt; zip3 (a:x) (b:y) (c:z) = (a,b,c):zip3 x y z
+&gt; zip3 x y z = []
+&gt; zip4 (a:w) (b:x) (c:y) (d:z) = (a,b,c,d):zip4 w x y z
+&gt; zip4 w x y z = []
+&gt; zip5 (a:v) (b:w) (c:x) (d:y) (e:z) = (a,b,c,d,e):zip5 v w x y z
+&gt; zip5 v w x y z = []
+&gt; zip6 (a:u)(b:v)(c:w)(d:x)(e:y)(f:z) = (a,b,c,d,e,f):zip6 u v w x y z
+&gt; zip6 u v w x y z = []
+</code></pre>
+<p>The following is included for compatibility with Bird and Wadler (1988).
+The normal Miranda style is to use the curried form <code>zip2</code>.</p>
+<pre><code>&gt; zip :: ([*],[**])-&gt;[(*,**)]
+&gt; zip (x,y) = zip2 x y
+</code></pre>
+<p>End of definitions of the standard environment</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../26/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Miranda lexical syntax" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Miranda lexical syntax
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../29/" class="md-footer__link md-footer__link--next" aria-label="Next: Literate Scripts" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Literate Scripts
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      FREE OPEN SOURCE
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>

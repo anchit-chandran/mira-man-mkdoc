@@ -1,0 +1,1354 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Docs site for Miranda">
+      
+      
+        <meta name="author" content="Dr Anchit Chandran">
+      
+      
+      
+        <link rel="prev" href="../3/">
+      
+      
+        <link rel="next" href="../5/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>The Miranda command interpreter - Miranda Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../_assets/_stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="dark" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-miranda-command-interpreter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Miranda Docs" class="md-header__button md-logo" aria-label="Miranda Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Miranda Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Miranda command interpreter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../2/" class="md-tabs__link">
+        Meta
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Miranda command interpreter
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../7/" class="md-tabs__link">
+        Main Concepts
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Miranda Docs" class="md-nav__button md-logo" aria-label="Miranda Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Miranda Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Meta
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Meta
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        About the name 'Miranda'
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        About this release
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Miranda command interpreter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Miranda command interpreter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          The Miranda command interpreter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        The Miranda command interpreter
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exp" class="md-nav__link">
+    'exp'
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp-pathname" class="md-nav__link">
+    exp &amp;&gt; pathname
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp-pathname_1" class="md-nav__link">
+    exp &amp;&gt;&gt; pathname
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp_1" class="md-nav__link">
+    exp ::
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifiers" class="md-nav__link">
+    ?identifier(s)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier" class="md-nav__link">
+    ??identifier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command" class="md-nav__link">
+    !command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    !!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-also-e" class="md-nav__link">
+    /edit (also /e)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-pathname-also-e-pathname" class="md-nav__link">
+    /edit pathname (also /e pathname)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-also-f" class="md-nav__link">
+    /file (also /f)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-pathname-also-f-pathname" class="md-nav__link">
+    /file pathname (also /f pathname)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help-also-h" class="md-nav__link">
+    /help (also /h)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#man-also-m" class="md-nav__link">
+    /man (also /m)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quit-also-q" class="md-nav__link">
+    /quit (also /q)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        Summary of main commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        Remaining commands list
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Main Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Main Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        Expressions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        Operators & Binding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        Sections
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        Identifiers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        Literals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12/" class="md-nav__link">
+        Tokenisation and layout
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          Iterative Expressions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          Iterative Expressions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-1/" class="md-nav__link">
+        Dotdot notation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-2/" class="md-nav__link">
+        List comprehensions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-3/" class="md-nav__link">
+        Diagonalising list comprehensions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15/" class="md-nav__link">
+        Definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16/" class="md-nav__link">
+        Pattern Matching
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17/" class="md-nav__link">
+        Compiler directives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18/" class="md-nav__link">
+        Basic type structure and notation for types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19/" class="md-nav__link">
+        Type synonym declarations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20/" class="md-nav__link">
+        Algebraic type definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21/" class="md-nav__link">
+        Abstract type definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22/" class="md-nav__link">
+        Empty types (also called Placeholder types)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23/" class="md-nav__link">
+        Show
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24/" class="md-nav__link">
+        Syntax of Miranda scripts and expressions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25/" class="md-nav__link">
+        Comments on the syntax for Miranda scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26/" class="md-nav__link">
+        Miranda lexical syntax
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28/" class="md-nav__link">
+        The Miranda Standard Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29/" class="md-nav__link">
+        Literate Scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../30/" class="md-nav__link">
+        Programming Style Guidelines
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exp" class="md-nav__link">
+    'exp'
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp-pathname" class="md-nav__link">
+    exp &amp;&gt; pathname
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp-pathname_1" class="md-nav__link">
+    exp &amp;&gt;&gt; pathname
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exp_1" class="md-nav__link">
+    exp ::
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifiers" class="md-nav__link">
+    ?identifier(s)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier" class="md-nav__link">
+    ??identifier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command" class="md-nav__link">
+    !command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    !!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-also-e" class="md-nav__link">
+    /edit (also /e)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-pathname-also-e-pathname" class="md-nav__link">
+    /edit pathname (also /e pathname)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-also-f" class="md-nav__link">
+    /file (also /f)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-pathname-also-f-pathname" class="md-nav__link">
+    /file pathname (also /f pathname)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#help-also-h" class="md-nav__link">
+    /help (also /h)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#man-also-m" class="md-nav__link">
+    /man (also /m)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quit-also-q" class="md-nav__link">
+    /quit (also /q)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="the-miranda-command-interpreter">The Miranda command interpreter</h1>
+<p>The Miranda system is invoked from unix by the command</p>
+<pre><code>    mira [script]
+</code></pre>
+<p>where <code>script</code> (optional parameter) is the pathname of a file containing
+a  set of Miranda definitions.  If no script is specified a default name
+<code>script.m</code> is assumed.  The named script (script.m by  default)  becomes
+your current script, during the ensuing Miranda session.  You can change
+your "current script" during a session, but  at  any  time  there  is  a
+unique filename which is current.</p>
+<p>Note that a file containing a Miranda script is expected to have a  name
+ending  in  <code>.m</code>  and  the  <code>mira</code>  command  will  add this extension if
+missing.  So <code>mira stuff</code> will be interpreted as <code>mira stuff.m</code>.  It  is
+a  convenient  and  widely used convention that files containing program
+sources should have names indicating which language they are written in.</p>
+<p>The set of names in scope at any time are those of the  current  script,
+together  with the names of any scripts which it <code>includes</code> (see library
+directives) plus the names of the standard environment, which is  always
+in  scope.   The  current script may be an empty or non-existent file if
+you have not yet put any definitions in it.  In this case just the names
+of the standard environment will be in scope.</p>
+<p>The prompt <code>Miranda</code> indicates that  you  are  talking  to  the  Miranda
+interpreter.   This  activity  is  called  a  Miranda <code>session'`.  Each
+command should be typed on a single line, following the prompt,  and  is
+entered  by  hitting  return.  Any command not beginning with one of the
+special characters `/</code> <code>?</code>, or <code>!</code> is assumed to be an expression to be
+evaluated.  The following commands are available during a session.</p>
+<h2 id="exp">'exp'</h2>
+<p>Any Miranda expression typed on a line by itself is evaluated, and  the
+value  is  printed  on the screen.  If the value is of type [char] it is
+printed literally, otherwise the special function <code>show</code> is  applied  to
+it to convert it to printable form.  Example
+Miranda sum[1..100]
+5050 (response)</p>
+<p>There  is a special symbol $$ which is always set to the last expression
+evaluated.  So after the above command $$ will have the value 5050,  and
+this  can  be used in the next expression - e.g. <code>$$/2</code> will produce the
+response 2525 (and the value of <code>$$</code> is now 2525).</p>
+<h2 id="exp-pathname"><code>exp &amp;&gt; pathname</code></h2>
+<p>A background process is set up  to  evaluate  exp,  and  the  resulting
+output (including error messages, if any) sent to the designated file.</p>
+<h2 id="exp-pathname_1"><code>exp &amp;&gt;&gt; pathname</code></h2>
+<p>As  above,  except  that the output is appended to the designated file,
+instead of replacing its previous contents.</p>
+<h2 id="exp_1"><code>exp ::</code></h2>
+<p>Print the type of the expression (instead of the  value).   Useful  for
+investigating the type structure of a script.</p>
+<h2 id="_1"><code>?</code></h2>
+<p>Lists  all  identifiers  currently in scope, grouped by file of origin,
+starting with the standard environment.</p>
+<h2 id="identifiers"><code>?identifier(s)</code></h2>
+<p>Gives more information about any  identifier  defined  in  the  current
+environment  (namely  its  type  and the name of the file in which it is
+defined).   This  command  will  also  accept  a  list  of  identifiers,
+separated by spaces.</p>
+<h2 id="identifier"><code>??identifier</code></h2>
+<p>Opens the relevant source file at the definition of  identifier,  which
+may be any currently in scope.  Try for example ??map
+For  this and several other features to work Miranda must be configured
+to use an appropriate editor - the default is vi,  but  you  can  change
+this.   See  section  31 subheading 5 of this manual ("How to change the
+default editor").</p>
+<h2 id="command"><code>!command</code></h2>
+<p>Execute any UNIX shell command.</p>
+<h2 id="_2"><code>!!</code></h2>
+<p>Repeat last shell command.</p>
+<p>Note that the character <code>%</code> can be used in any Miranda session  command,
+including  a  <code>!</code>  command,  as  an abbreviation for the pathname of the
+current script.  So for example
+        !wc %
+does a word count on the current script.  (If for some reason  you  need
+to  include a literal % character in a command, you can escape it with a
+preceding backslash.)</p>
+<p>All  the  remaining  commands  begin  with  <code>/</code>.   Each of the following
+commands can be abbreviated to its first letter.</p>
+<h2 id="edit-also-e"><code>/edit (also /e)</code></h2>
+<p>Edit the current script.   Calls  up  the  currently  installed  editor
+(default vi, to change this see remark under ?? above).  On quitting the
+editor, if changes have been made  to  any  relevant  source  file,  the
+Miranda system automatically recompiles the current script and any other
+scripts on which it depends and which have been updated.</p>
+<h2 id="edit-pathname-also-e-pathname"><code>/edit pathname (also /e pathname)</code></h2>
+<p>Edit arbitrary script.  Note that the pathname should end in  <code>.m</code>  and
+that this will be added if missing.</p>
+<p>Note by the way that (on most UNIX-like systems) Miranda understands the
+commonly used <code>~</code> convention in pathnames.  That is ~/file means file in
+your home directory, and ~jack/file means file in jack's home directory.</p>
+<h2 id="file-also-f"><code>/file (also /f)</code></h2>
+<p>Print the name of file containing the current script.</p>
+<h2 id="file-pathname-also-f-pathname"><code>/file pathname (also /f pathname)</code></h2>
+<p>Change to new current  script.   Equivalent  to  quitting  the  Miranda
+system  and  reinvoking it with a new sourcefile.  Like /e, /f adds ".m"
+to the end of the filename if missing.</p>
+<p>Important special case - reselecting the current script, eg by saying
+        /f %
+forces the current script to be RECOMPILED - this is  useful  if  script
+has errors and you wish to see the error messages again.</p>
+<h2 id="help-also-h"><code>/help (also /h)</code></h2>
+<p>Display summary of main available commands.  There are a few less used
+auxiliary commands, not covered here /aux (or /a) will summarise these.</p>
+<h2 id="man-also-m"><code>/man (also /m)</code></h2>
+<p>Enter online manual system.</p>
+<h2 id="quit-also-q"><code>/quit (also /q)</code></h2>
+<p>Quit the Miranda system.  Typing the end of file character  (control-D)
+also has this effect.</p>
+<p>Finally note that $- and $+ are allowed as notations  for  the  standard
+input  in  Miranda  expressions.   The  standard  input  as  a  list  of
+characters is denoted by <code>$-</code>.  As  a  simple  example,  evaluating  the
+expression
+        reverse $-
+causes  everything  typed  at the keyboard upto the next control-D to be
+echoed backwards.</p>
+<p>The notation <code>$+</code> also denotes the standard input, but as a sequence  of
+Miranda  expressions  (one  per  line),  and  returns their values.  For
+example
+        sum $+
+reads a sequence of numeric expressions from  the  standard  input,  and
+returns the sum of their values.  See the manual section on reading with
+interpretation  (under  UNIX/Miranda  system  interface)   for   further
+information.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About this release" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                About this release
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../5/" class="md-footer__link md-footer__link--next" aria-label="Next: Summary of main commands" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Summary of main commands
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      FREE OPEN SOURCE
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.footer", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>
