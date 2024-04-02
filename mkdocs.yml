@@ -5,11 +5,11 @@ site_author: Dr Anchit Chandran
 # site_url: https://medicode.info/
 
 # copyright information which is shown in the footer
-copyright: Copyright &copy; 2023 Anchit Chandran Ltd.
+copyright: FREE OPEN SOURCE
 
 # these lines configure the 'GitHub repo' widget on the top right
 # repo_url: https://github.com/anchit-chandran/medicode-website
-repo_name: anchit-chandran/mira-mkdoc
+repo_name: anchit-chandran/mira-man-mkdoc
 
 # `mkdocs serve` serves the documentation at custom port
 dev_addr: "127.0.0.1:8001"
